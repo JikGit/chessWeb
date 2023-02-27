@@ -67,10 +67,40 @@ function checkPosition(possibleMoves, board, pieceColor){
 }
 
 function checkForCastle(x,y, board){
-    return board[y][x] === "white" ? [!board[7][0].hasMoved && getRowPossibleMoves(x,y,board[y][x].color,board, true).length !== 0 && board[7][getRowPossibleMoves(x,y,board[y][x].color,board, true).at(-1).x-1].type === "rook" && [7,1], 
-            board[7][7] && getRowPossibleMoves(x,y,board[y][x].color,board).length !== 0 && !board[7][7].hasMoved && board[7][getRowPossibleMoves(x,y,board[y][x].color,board).at(-1).x+1].type === "rook" && [7,6]]
-            : [board[0][0] && getRowPossibleMoves(x,y,board[y][x].color,board,true).length !== 0 && !board[0][0].hasMoved && board[0][getRowPossibleMoves(x,y,board[y][x].color,board,true).at(-1).x-1].type === "rook" && [0,1], 
-            board[0][7] && getRowPossibleMoves(x,y,board[y][x].color,board,false) !== 0 && !board[0][7].hasMoved && board[0][getRowPossibleMoves(x,y,board[y][x].color,board,false).at(-1).x+1].type === "rook" && [0,6]];
+    //se il king si e' mosso niente castle
+    if (board[y][x].hasMoved)  return [];
+    let arr = []
+
+    if (board[y][x].color === "white"){
+        if (board[7][0] && board[7][0].type === "rook" && !board[7][0].hasMoved){
+            let leftRookMoves = getRowPossibleMoves(x,y,board[y][x].color,board,true);
+            if (leftRookMoves.length !== 0){ //se tutti azzeccati pezzi e non c'e' neanche uno spazio vuoto === no castle
+                let leftRook = board[leftRookMoves.at(-1).y][leftRookMoves.at(-1).x-1];
+                arr.push(leftRook === board[7][0] && [x - 2, y])
+            }
+        }if (board[7][7] && board[7][7].type === "rook" && !board[7][7].hasMoved){
+            let rightRookMoves = getRowPossibleMoves(x,y,board[y][x].color,board);
+            if (rightRookMoves.length !== 0){ //se tutti azzeccati pezzi e non c'e' neanche uno spazio vuoto === no castle
+                let rightRook = board[rightRookMoves.at(-1).y][rightRookMoves.at(-1).x+1];
+                arr.push(rightRook === board[7][7] && [x + 2, y])
+            }
+        }
+    }else{
+        if (board[0][0] && board[0][0].type === "rook" && !board[0][0].hasMoved){
+            let leftRookMoves = getRowPossibleMoves(x,y,board[y][x].color,board,true);
+            if (leftRookMoves.length !== 0){ //se tutti azzeccati pezzi e non c'e' neanche uno spazio vuoto === no castle
+                let leftRook = board[leftRookMoves.at(-1).y][leftRookMoves.at(-1).x-1];
+                arr.push(leftRook === board[0][0] && [x - 2, y])
+            }
+        }if (board[0][7] && board[0][7].type === "rook" && !board[0][7].hasMoved){
+            let rightRookMoves = getRowPossibleMoves(x,y,board[y][x].color,board);
+            if (rightRookMoves.length !== 0){ //se tutti azzeccati pezzi e non c'e' neanche uno spazio vuoto === no castle
+                let rightRook = board[rightRookMoves.at(-1).y][rightRookMoves.at(-1).x+1];
+                arr.push(rightRook === board[0][7] && [x + 2, y])
+            }
+        }
+    }
+    return arr;
 }
 
 function checkForEnPassant(x, y, lastLog){

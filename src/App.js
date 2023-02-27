@@ -1,8 +1,8 @@
-import Board from './Board'
 import './css/app.css';
-import './css/board.css';
+import './css/board.css'
+import './css/fineGame.css';
 import SingIn from './auth/SingIn';
-import SingOut from './auth/SingOut'
+import Game from './Game';
 
 import { Route, Routes, Navigate} from "react-router-dom"
 
@@ -13,9 +13,8 @@ function App() {
 		<div className='App'>
 			<Routes>
 				<Route path="/*" element={user? <Navigate to={`/match/${randomMatchId}`} replace />: <SingIn/>}/>
-				<Route path="/match/*" element={user? <Board userName={user && user}/> : <SingIn/>}/>
+				<Route path="/match/*" element={user? <Game userName={user && user}/> : <SingIn/>}/>
 			</Routes>
-			<SingOut/>
 		</div>
 	);
 }

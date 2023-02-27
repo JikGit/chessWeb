@@ -1,16 +1,11 @@
-import { Navigate } from 'react-router-dom'
-
-function exitAcc(){
-	localStorage.setItem("userName", "")
-	return <Navigate to="/" replace/>
-}
-
-
 function SingOut() {
+	function exitAcc(){
+		localStorage.setItem("userName", "")
+		window.location.href='/';
+	}
+
 	return (
-		<>
-			<button id="singOutBtn" onClick={exitAcc}>SingOut</button>
-		</>
+		<button id="singOutBtn" onClick={exitAcc}>SingOut</button>
 	);
 }
 

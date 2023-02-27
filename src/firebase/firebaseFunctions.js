@@ -23,7 +23,7 @@ async function getQuery(nameCollection){
 }
 
 async function doesDocExist(nameCollection, docName){
-	const docRef = doc(db, nameCollection, `${docName}/infoGame/white`);
+	const docRef = doc(db, nameCollection, `${docName}`);
 	const docSnap = await getDoc(docRef);
 	return docSnap.exists();
 }

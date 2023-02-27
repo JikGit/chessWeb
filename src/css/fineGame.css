@@ -1,0 +1,71 @@
+/* invisibile */
+#fineGame:not('visible'){display: none}
+
+#fineGame{
+    /* centro */
+    position: absolute; 
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 50%;
+    height: 70%;
+    border-radius: 20px;
+    z-index: 2;
+    background-color: white;
+    color: white;
+    overflow: hidden; /* la parte fuori dal container non si vede */
+}
+
+/* prima lettera maiuscola */
+#fineGame > .circle *::first-letter {text-transform:capitalize;}
+
+#fineGame > .circle{
+    width: 140%;
+    height: 50%;
+    top: 9%;
+    position: absolute;
+    border-radius: 50%;
+}
+
+#fineGame.sconfitta > .circle{background-color: #666564;}
+#fineGame.vittoria > .circle{background-color: #2a9518;}
+
+/* ruoto se nera la board */
+#board.black > #fineGame{
+    transform: rotate(-180deg) translate(-50%, -50%);
+    transform-origin: 0% 0%;
+}
+
+#fineGame > .center h1,
+#fineGame > .center > p{
+    width: 100%;
+    text-align: center;
+    position: absolute; 
+
+}
+#fineGame > .center h1 {font-size: 5vw; top: 50%;}
+#fineGame > .center p {font-size: 3vw; top: 80%;}
+
+#board > #fineGame > #nuovaPartita{
+    width: auto;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+
+    position: absolute;
+    top: 90%;
+    z-index: 3;
+
+    text-align: center;
+    color: black;
+    white-space: nowrap;
+    padding: 5px;
+}
+
+/* 
+@media only screen and (max-width: 600px) {
+    #fineGame > .center > p{font-size: 11px;}
+    #fineGame > .center > h1{font-size: 20px;}
+    #board > #fineGame > #nuovaPartita{font-size: 12px;}
+} */
