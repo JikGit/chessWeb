@@ -1,0 +1,37 @@
+#menuSelectable{
+	position: fixed;
+	left: 2%;
+	top: 2%;
+	background-color: white;
+	line-height: 40px;
+	z-index: 1000;
+}
+
+#topMenuElm{
+	width: 110px;	
+	height: 40px;
+	color: black;
+	font-size: 20px;
+	position: relative;
+	padding-left: 20px;
+}
+
+#topMenuElm> .titleMenu{padding-left: 5px;}
+#topMenuElm> #openCloseIcon{
+	position: absolute;	
+	padding-left: 50px;
+	right: 5%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+#menuSelectable > .option{
+	width: 110px;	
+	height: 40px;
+	padding-left: 10px;
+	font-size: 20px;
+}
+
+#menuSelectable > .option:hover{
+	background-color: rgba(0,0,0, 0.5);
+}

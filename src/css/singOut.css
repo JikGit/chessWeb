@@ -1,0 +1,14 @@
+#singOut{
+	position: fixed;
+	background-color: white;
+	color: black;
+	bottom: 3%;
+	left: 2%;
+    cursor: pointer;
+	border: 1px solid white;
+	border-radius: 5000px;
+	padding: 5px;
+}
+
+
+

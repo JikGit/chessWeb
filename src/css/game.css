@@ -1,0 +1,32 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+	user-select: none; 
+}
+
+/* no scrolling thing on iphone */
+html {
+    height  : 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+body {
+    height  : 100%;
+    position: relative;
+    /* background-color: #191919; */
+	background: linear-gradient(45deg, #FC466B, #3F5EFB);
+}
+
+:root {
+  touch-action: pan-x pan-y;
+  height: 100% 
+}
+
+/* bordo blurrato */
+#singOut,
+#menuSelectable,
+#board{
+	box-shadow: 4px 4px 10px 10px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 4px 4px 10px 10px rgba(0,0,0,0.3);
+}
