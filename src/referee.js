@@ -15,6 +15,7 @@ function getRowPossibleMoves(x, y, color, board, left = false){
 
     return moves;
 }
+
 function getColPossibleMoves(x, y, color, board, up = false){
     let moves = [];
     //destra aumentando le y e sinistra diminuendole
@@ -136,12 +137,13 @@ function getQueenPossibleMoves(x, y, pieceColor, board){
     return getRookPossibleMoves(x, y, pieceColor, board).concat(getBishopPossibleMoves(x, y, pieceColor, board));
 }
 
-function getKingPossibleMoves(x, y, pieceColor, board,lastLog){
-    let possibleMoves = checkForCastle(x,y,board,lastLog).concat([[x-1, y-1], [x, y-1], [x+1, y-1], [x-1, y], [x+1,y], [x-1,y+1], [x, y+1], [x+1, y+1]]);
+//se opponentCheckMate non si 
+function getKingPossibleMoves(x, y, pieceColor, board,lastLog, opponentCheckMate = false){
+    let possibleMoves = (opponentCheckMate ? checkForCastle(x,y,board,lastLog) : []).concat([[x-1, y-1], [x, y-1], [x+1, y-1], [x-1, y], [x+1,y], [x-1,y+1], [x, y+1], [x+1, y+1]]);
     return checkPosition(possibleMoves, board, pieceColor);
 }
 
-function isCheck(board, kingColor, lastLog){
+function isCheck(board, kingColor, lastLog, opponentCheckMate){
     //x, y del king
     let kingPos = {}
     let allMoves = [] 
@@ -152,9 +154,9 @@ function isCheck(board, kingColor, lastLog){
             //setto le cordinate del king da vedere se sotto scacco
             if (piece && piece.type === "king" && piece.color === kingColor)  kingPos = {x:col, y:row}
             //se insieme di squadra o pezzo vuoto
-            if (!piece || piece.color === kingColor || piece.type === "king") return;
+            if (!piece || piece.color === kingColor) return;
 
-            allMoves = allMoves.concat(getPossibleMoves(col, row, board, lastLog))
+            allMoves = allMoves.concat(getPossibleMoves(col, row, board, lastLog, opponentCheckMate))
         })
     })
 
@@ -162,12 +164,12 @@ function isCheck(board, kingColor, lastLog){
 }
 
 //per ogni moves simulo il movimento e vedo se chkeck, ritorno la lista di moves che non causano il check
-function notCheckMoves(x, y, moves, board, kingColor, lastLog){
+function notCheckMoves(x, y, moves, board, kingColor, lastLog, opponentCheckMate){
     let legalMoves = []
     moves.forEach((move) => {
         //simulo il movimento e poi vedo se e' check
         let newBoard = updatePiecePos(JSON.parse(JSON.stringify(board)), JSON.parse(JSON.stringify(board))[y][x], move.x, move.y)
-        if (!isCheck(newBoard, kingColor, lastLog))
+        if (!isCheck(newBoard, kingColor, lastLog, opponentCheckMate))
             legalMoves.push(move);
     })
     return legalMoves;
@@ -178,7 +180,7 @@ function isCheckMate(board, kingColor, lastLog){
     board.forEach((pieceRow) => {
         return pieceRow.forEach((piece) => {
             if (!piece || piece.color !== kingColor) return;
-            if (notCheckMoves(piece.x, piece.y, getPossibleMoves(piece.x, piece.y, board, lastLog), board, kingColor, lastLog).length !== 0){
+            if (notCheckMoves(piece.x, piece.y, getPossibleMoves(piece.x, piece.y, board, lastLog), board, kingColor, lastLog, true).length !== 0){
                 checkMate = false;
                 return;
             }
@@ -189,7 +191,7 @@ function isCheckMate(board, kingColor, lastLog){
 
 
 //board is a doouble index array of object of class PieceClass, return all the possible position the piece can go
-function getPossibleMoves(x,y, board, lastLog){
+function getPossibleMoves(x,y, board, lastLog, opponentCheckMate){
     const color = board[y][x].color;
     const type = board[y][x].type;
 
@@ -205,7 +207,7 @@ function getPossibleMoves(x,y, board, lastLog){
             return getBishopPossibleMoves(x, y, color, board);
         case "king":
             //su giu destra sinistra e diagonali (solo 1 blocco pero)
-            return getKingPossibleMoves(x, y, color, board, lastLog);
+            return getKingPossibleMoves(x, y, color, board, lastLog, opponentCheckMate);
         case "queen":
             //bishop and rook combined
             return getQueenPossibleMoves(x, y, color, board);
