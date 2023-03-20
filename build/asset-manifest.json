@@ -1,0 +1,39 @@
+{
+  "files": {
+    "main.css": "/chessWeb/static/css/main.b756d825.css",
+    "main.js": "/chessWeb/static/js/main.f08ab83c.js",
+    "static/media/board.svg": "/chessWeb/static/media/board.d17dffbdd68ff177ac29.svg",
+    "static/media/wK.svg": "/chessWeb/static/media/wK.1fe87bb02705d9f5b6d9.svg",
+    "static/media/wQ.svg": "/chessWeb/static/media/wQ.5855fbef68a1bfe16dcd.svg",
+    "static/media/bQ.svg": "/chessWeb/static/media/bQ.1161205ca14babbf79eb.svg",
+    "static/media/bK.svg": "/chessWeb/static/media/bK.b68dab7836538b51f031.svg",
+    "static/media/wN.svg": "/chessWeb/static/media/wN.72190fd0a4988168a961.svg",
+    "static/media/bN.svg": "/chessWeb/static/media/bN.5c450713e4c2edf98ad0.svg",
+    "static/media/bR.svg": "/chessWeb/static/media/bR.ff8849ae911eb4c8c99d.svg",
+    "static/media/wB.svg": "/chessWeb/static/media/wB.987ef67f52feb5855179.svg",
+    "static/media/wR.svg": "/chessWeb/static/media/wR.945bc261ae72a474964e.svg",
+    "static/media/bB.svg": "/chessWeb/static/media/bB.0a6a98a0175b3cef1073.svg",
+    "static/media/bP.svg": "/chessWeb/static/media/bP.5fb22523d62a873917be.svg",
+    "static/media/wP.svg": "/chessWeb/static/media/wP.f9fb4b59c550e902304c.svg",
+    "static/media/take.mp3": "/chessWeb/static/media/take.50a82eb7751017c421ea.mp3",
+    "static/media/check.mp3": "/chessWeb/static/media/check.d5c02d036180441c9f1f.mp3",
+    "static/media/move.mp3": "/chessWeb/static/media/move.7a8fd4df345fe5203193.mp3",
+    "static/media/bE.svg": "/chessWeb/static/media/bE.db8974fcf1199a11a7d3.svg",
+    "static/media/wE.svg": "/chessWeb/static/media/wE.97761648de0fb2485d97.svg",
+    "static/media/wA.svg": "/chessWeb/static/media/wA.8655c08a1b421cb82646.svg",
+    "static/media/bA.svg": "/chessWeb/static/media/bA.3469f20bcab1a41fbd87.svg",
+    "static/media/bCh.svg": "/chessWeb/static/media/bCh.8baa78480e083f7b5010.svg",
+    "static/media/wCh.svg": "/chessWeb/static/media/wCh.679977d33c8cbed7331f.svg",
+    "static/media/wC.svg": "/chessWeb/static/media/wC.ce3f72970937a5f9f6d6.svg",
+    "static/media/bC.svg": "/chessWeb/static/media/bC.d65fc41dff56f2432d32.svg",
+    "static/media/wH.svg": "/chessWeb/static/media/wH.60ac2d1114d3b30fc52d.svg",
+    "static/media/bH.svg": "/chessWeb/static/media/bH.d7640772e9db3d122ea9.svg",
+    "index.html": "/chessWeb/index.html",
+    "main.b756d825.css.map": "/chessWeb/static/css/main.b756d825.css.map",
+    "main.f08ab83c.js.map": "/chessWeb/static/js/main.f08ab83c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b756d825.css",
+    "static/js/main.f08ab83c.js"
+  ]
+}
