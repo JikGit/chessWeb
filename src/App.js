@@ -1,16 +1,16 @@
 import SingIn from './auth/SingIn';
 import Game from './Game';
 
-import { Route, Routes, Navigate} from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 
 function App() {
-	let randomMatchId = parseInt(Math.random() * 1000000000);
+	let randomMatchId = localStorage.getItem("idMatch") || parseInt(Math.random() * 1000000000);
 	let user = localStorage.getItem("userName");
+	// <Route path="/*" element={user? } replace />: <SingIn/>}/>
 	return (
 		<div className='App'>
 			<Routes>
-				<Route path="/*" element={user? <Navigate to={`/match/${randomMatchId}`} replace />: <SingIn/>}/>
-				<Route path="/match/*" element={user? <Game userName={user && user}/> : <SingIn/>}/>
+				<Route path="*" element={user? <Game userName={user} idMatch={randomMatchId}/> : <SingIn/>}/>
 			</Routes>
 		</div>
 	);

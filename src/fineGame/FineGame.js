@@ -1,3 +1,5 @@
+import '../css/fineGame.css';
+
 import React from 'react'
 import { useState } from 'react';
 import NuovaPartita from './NuovaPartita'

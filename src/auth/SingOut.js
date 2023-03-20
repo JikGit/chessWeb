@@ -2,7 +2,7 @@ import '../css/singOut.css'
 function SingOut() {
 	function exitAcc(){
 		localStorage.setItem("userName", "")
-		window.location.href='/';
+		window.location.reload();
 	}
 
 	return (

@@ -1,0 +1,28 @@
+#idGameSelection.inputFormContainer{
+	all: unset;
+	position: fixed;
+	right: 0.5%;
+	top: 0.5%;
+	z-index: 1000;
+	text-align: center;
+}
+
+#idGameSelection.inputFormContainer form {
+	height: auto;
+	max-width: 40vw;
+}
+
+#idGameSelection.inputFormContainer form p{font-size: 2.4vh;}
+
+#idGameSelection.inputFormContainer form,
+#idGameSelection.inputFormContainer form button,
+#idGameSelection.inputFormContainer form input,
+#idGameSelection.inputFormContainer form p{
+	margin: 4px;
+	padding: 2px;
+}
+
+#idGameSelection.inputFormContainer form input{
+	padding-left: 10px;
+	width: 90%;
+}

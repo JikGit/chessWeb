@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/chessWeb/static/css/main.b756d825.css",
-    "main.js": "/chessWeb/static/js/main.c1b2e834.js",
+    "main.js": "/chessWeb/static/js/main.9107e293.js",
     "static/media/board.svg": "/chessWeb/static/media/board.d17dffbdd68ff177ac29.svg",
     "static/media/wK.svg": "/chessWeb/static/media/wK.1fe87bb02705d9f5b6d9.svg",
     "static/media/wQ.svg": "/chessWeb/static/media/wQ.5855fbef68a1bfe16dcd.svg",
@@ -30,10 +30,10 @@
     "static/media/bH.svg": "/chessWeb/static/media/bH.d7640772e9db3d122ea9.svg",
     "index.html": "/chessWeb/index.html",
     "main.b756d825.css.map": "/chessWeb/static/css/main.b756d825.css.map",
-    "main.c1b2e834.js.map": "/chessWeb/static/js/main.c1b2e834.js.map"
+    "main.9107e293.js.map": "/chessWeb/static/js/main.9107e293.js.map"
   },
   "entrypoints": [
     "static/css/main.b756d825.css",
-    "static/js/main.c1b2e834.js"
+    "static/js/main.9107e293.js"
   ]
 }

@@ -1,11 +1,8 @@
-import './css/arrows.css'
 import './css/switchBoard.css';
-import './css/fineGame.css';
-import './css/menuSelectable.css';
+import './css/arrows.css'
 import './css/game.css'
 
 import React from 'react'
-import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faAngleRight, faAngleLeft, faArrowsRotate } from '@fortawesome/free-solid-svg-icons'
@@ -13,13 +10,12 @@ import { faAngleRight, faAngleLeft, faArrowsRotate } from '@fortawesome/free-sol
 import Board from './Board'
 import SingOut from './auth/SingOut'
 import MenuSelectable from './MenuSelectable'
+import SelezioneGame from './SelezioneGame';
 import  FineGame from './fineGame/FineGame';
 import { readCollection } from './firebase/firebaseFunctions'
 import { initialateGame } from './initialate/initialateGame';
 
-function Game({userName}) {
-	//id del game (preso dall'url)
-	const idMatch = useLocation().pathname.split("/")[2]
+function Game({userName, idMatch}) {
 	const [statoPartita, setStatoPartita] = useState("");
 	const [winnerName, setWinnerName] = useState("");
 	const [playerColor, setPlayerColor] = useState();
@@ -58,6 +54,8 @@ function Game({userName}) {
 
 	return (
 		<>
+			{/*selezione idGame*/}
+			<SelezioneGame idMatch={idMatch}/>
 			{/*barra per selezione tema*/}
 			<MenuSelectable items={themes} callbackFunction={optionMenuClicked}/>
 			{/*Winner window*/}
