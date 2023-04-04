@@ -195,6 +195,16 @@ function Board({idMatch, statoPartita, setStatoPartita, playerColor, spectator, 
 			setLastLog(lastLog);
 			setColorTurn(colorTurn);
 
+			//se spectator deve vedere anche quelli bianchi, gli spectator sono playerColor black
+			if (spectator){
+				getLastLogQuery("matches", `${idMatch}/logsblack`).then((query) => {
+					onSnapshot(query, (arrLastLog) => {
+						//se non e' nullo l'array aggiorno lo state dell'ultimo log (e poi viene chiamato l'useEffect che aggiorna la board) oppure se ho gia' fatto il log che sta leggendo ora dal server
+						if (arrLastLog.docs.length && (!lastLog || parseInt(arrLastLog.docs.at(-1).id.split("log")[1]) > parseInt(lastLog.id.split("log")[1])))
+							setMoveOpponentPiece({data:arrLastLog.docs.at(-1).data(), id:arrLastLog.docs.at(-1).id});
+					});
+				})
+			}
 			//real time data dal db, ogni volta che c'e un aggiornamento aggiorna lo state lastLog
 			getLastLogQuery("matches", `${idMatch}/logs${(playerColor === "white" ? "black" : "white")}`).then((query) => {
 				onSnapshot(query, (arrLastLog) => {
@@ -253,7 +263,6 @@ function Board({idMatch, statoPartita, setStatoPartita, playerColor, spectator, 
 			</div>
 		</div>
 	)
-
 }
 
 
