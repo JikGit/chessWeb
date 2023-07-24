@@ -10,7 +10,7 @@ import { faAngleRight, faAngleLeft, faArrowsRotate } from '@fortawesome/free-sol
 import Board from './Board'
 import SingOut from './auth/SingOut'
 import MenuSelectable from './MenuSelectable'
-import SelezioneGame from './SelezioneGame';
+import {SelezioneGame} from './SelezioneGame';
 import  FineGame from './fineGame/FineGame';
 import { readCollection } from './firebase/firebaseFunctions'
 import { initialateGame } from './initialate/initialateGame';
@@ -24,9 +24,10 @@ function Game({userName, idMatch}) {
 	const [rightArrowClicked, setRightArrowClicked] = useState(false);
 
 	const themes = ["tema 1", "tema 2", "tema 3", "tema 4"]
+
 	//callback quando si clicka un item nel menu
 	function optionMenuClicked(event){
-		let themeElm = event.target;
+		const themeElm = event.target;
 		localStorage.setItem("piecesTheme", `${themeElm.innerHTML.split("tema ")[1]}`)
 		window.location.reload();
 	}	
@@ -63,6 +64,8 @@ function Game({userName, idMatch}) {
 
 			{playerColor &&
 				<div className="center" id="game">
+
+
 					{/*Rotate board*/}
 					<div id="switchBoard"> 
 						<FontAwesomeIcon icon={faArrowsRotate} onClick={() => {document.getElementById("board").classList.toggle("black")}}/> 

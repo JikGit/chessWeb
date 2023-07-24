@@ -10,7 +10,7 @@ function SelezioneGame({idMatch}) {
 			<form>
 				<p className='title'>Inserisci id Partita</p>
 				<input ref={inputRef} type="text" defaultValue={idMatch && idMatch}/><br/>
-				<button onClick={() => {setIdMatch(inputRef.current.value)}}>Invio</button>
+				<button type="submit" onClick={() => {setIdMatch(inputRef.current.value)}}>Invio</button>
 			</form>
 		</div>
 	);
@@ -18,6 +18,6 @@ function SelezioneGame({idMatch}) {
 
 function setIdMatch(idMatch){
 	localStorage.setItem("idMatch", idMatch);
-
 }
-export default SelezioneGame;
+
+export {SelezioneGame, setIdMatch};
